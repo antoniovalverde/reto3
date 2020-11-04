@@ -1,9 +1,22 @@
 .board{
-    margin-top: 2em;
+    margin-top: 5em;
     margin-right: 2em;
     margin-left: 2em;
+    padding: 2em;
     display: flex;
+
     background-color: green;
     height: 40em;
 
+    div{
+        background-color: white;
+        height: 30em;
+        width: 15em;
+        padding: 2em;
+        margin: 2em;
+    }
+
+    .we{
+        background-color: cyan;
+    }
 }

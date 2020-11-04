@@ -1,0 +1,13 @@
+.columna{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .titulo{
+        background: pink;
+        align-self: center;
+        font-size: 1.5em;
+    
+    }
+}
+
