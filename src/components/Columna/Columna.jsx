@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import './Columna.scss';
 
-const Columna = props => {
-    const [coltitulo, setColtitulo] = useState(props.titulo);
+const Columna = ({titulo, indice, borraColumna}) => {
 
     return (<div className="columna">
-                <span className="titulo">{coltitulo}</span>
-                <ul className="containerTask"></ul>
-                <button>Eliminar</button>
+                <span className="titulo">{titulo}</span>
+                <ul className="contenedorMensajes"></ul>
+                <button onClick={() => borraColumna(indice)}>Eliminar</button>
              </div>
     )
 }
