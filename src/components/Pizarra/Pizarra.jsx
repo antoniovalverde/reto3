@@ -7,7 +7,7 @@ const Pizarra = props => {
     const [listacol, setListacol] = useState([]);
 
     const handleChange = e => setTitle({[e.target.name]: e.target.value})
-    
+
     const handleClick = e => setListacol([...listacol, title])
 
     const borraColumna = indice => {
@@ -25,7 +25,7 @@ const Pizarra = props => {
                 }
                         <div className="we">
                             <input type="text" id="title" name="title" placeholder="Nombre de la lista..." onChange={handleChange} />
-                            <button onClick={handleClick}>Crear Lista</button>
+                            <span onClick={handleClick}>+</span>
                         </div>
                 </div>
     )

@@ -6,7 +6,7 @@ const Columna = ({titulo, indice, borraColumna}) => {
     return (<div className="columna">
                 <span className="titulo">{titulo}</span>
                 <ul className="contenedorMensajes"></ul>
-                <button onClick={() => borraColumna(indice)}>Eliminar</button>
+                <button className="btnBorrado" onClick={() => borraColumna(indice)}>Eliminar</button>
              </div>
     )
 }

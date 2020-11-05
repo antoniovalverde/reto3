@@ -1,22 +1,36 @@
 .board{
-    margin-top: 5em;
+    margin-top: 4em;
     margin-right: 2em;
     margin-left: 2em;
     padding: 2em;
     display: flex;
+    overflow-x: auto;
 
-    background-color: green;
+    /*background-color: green;*/
     height: 40em;
 
     div{
-        background-color: white;
+        background-color: rgb(161, 223, 223);
         height: 30em;
         width: 15em;
         padding: 2em;
         margin: 2em;
+        border-radius: 1em;
     }
 
     .we{
-        background-color: cyan;
+        /*background-color: rgb(161, 223, 223);*/
+        height: 2em;
+        
+        input{
+            font-size: 1em;
+            margin-right: 1em;
+        }
+
+        span{
+            font-size: 1.5em;
+            font-weight: bold;
+            background-color: cyan;
+        }
     }
 }
