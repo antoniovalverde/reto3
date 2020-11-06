@@ -8,7 +8,12 @@ const Pizarra = props => {
 
     const handleChange = e => setTitle({[e.target.name]: e.target.value})
 
-    const handleClick = e => setListacol([...listacol, title])
+    const handleClick = e => {
+        if(Object.keys(title).length === 0 || title.title.trim() === '') {
+            return
+        }
+        setListacol([...listacol, title])
+    }
 
     const borraColumna = indice => {
         const resetlistacol = [...listacol]

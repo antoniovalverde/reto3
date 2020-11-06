@@ -8,7 +8,12 @@ const Columna = props => {
 
     const handleChangeT = e => setTask({[e.target.name]: e.target.value}) 
     
-    const handleClickT = e => setListatareas([...listatareas, task])
+    const handleClickT = e => {
+        if(Object.keys(task).length === 0 || task.descripcion.trim() === '') {
+            return
+        }
+        setListatareas([...listatareas, task])
+    }
 
     const borraTarea = index => {
         const resetlistatareas = [...listatareas]
