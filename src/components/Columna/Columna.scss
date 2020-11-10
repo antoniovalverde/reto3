@@ -2,18 +2,53 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(161, 223, 223);
+    height: 30em;
+    width: 15em;
+    padding-top: 0 !important;
+    border-radius: 1em;
 
-    .titulo{
-        background: pink;
-        align-self: center;
-        font-size: 1.5em;
+    .titular{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        height: 3em;
+
+
+        .titulo{
+            align-self: center;
+            font-size: 1.5em;
     
+        }
+
+        .btnBorrado{
+            font-size: 1.5em;
+            align-self: center;
+            font-weight: bold;
+            color: grey;
+        }
     }
 
-    .btnBorrado{
-        background-color: rgb(238, 140, 104);
-        font-size: 1em;
-        font-weight: bold;
+    .contenedorMensajes{
+        height: 80%;
+        overflow-y: auto;
+        padding-inline-start: 0 !important;
+    }
+
+    .frm{
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        height: 2em;
+        width: auto;
+
+        span{
+            align-self: center;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
     }
 }
 

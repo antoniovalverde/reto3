@@ -1,0 +1,14 @@
+.tareilla{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+
+    .btnBorraTarea{
+        color: grey;
+        padding: 0.2em;
+        padding-left: 1.5em;
+    }
+}

@@ -3,7 +3,7 @@ import './Tarea.scss';
 
 const Tarea = props => {
 
-    return (<li>
+    return (<li className="tareilla">
                 <span>{props.descripcion}</span>
                 <span className="btnBorraTarea" onClick={() => props.borraTarea(props.index)}>X</span>
              </li>

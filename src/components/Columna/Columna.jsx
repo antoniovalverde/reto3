@@ -22,10 +22,9 @@ const Columna = props => {
     }
 
     return (<div className="columna">
-                <span className="titulo">{props.titulo}</span>
-                <div className="frm">
-                    <input type="text" id="descripcion" name="descripcion" placeholder="Indica la tarea..." onChange={handleChangeT} />
-                    <span onClick={handleClickT}>+</span>
+                <div className="titular">
+                    <span className="titulo">{props.titulo}</span>
+                    <span className="btnBorrado" onClick={() => props.borraColumna(props.indice)}>X</span>
                 </div>
                 <ul className="contenedorMensajes">
                 {
@@ -34,7 +33,10 @@ const Columna = props => {
                     ))
                 }
                 </ul>
-                <button className="btnBorrado" onClick={() => props.borraColumna(props.indice)}>Eliminar</button>
+                <div className="frm">
+                    <input type="text" id="descripcion" name="descripcion" placeholder="Indica la tarea..." onChange={handleChangeT} />
+            <span onClick={handleClickT}>+</span>
+                </div>
              </div>
     )
 }
