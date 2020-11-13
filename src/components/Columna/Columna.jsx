@@ -13,6 +13,7 @@ const Columna = props => {
             return
         }
         setListatareas([...listatareas, task])
+        setTask({task: ''})
     }
 
     const borraTarea = index => {
@@ -20,12 +21,22 @@ const Columna = props => {
         resetlistatareas.splice(index, 1)
         setListatareas(resetlistatareas)
     }
+    //PRUEBAS PARA DRAG AND DROP SIN LIBRERIAS EN REACT
+    /*const onDragOver = (ev) => {
+        ev.preventDefault();
+    }
+    //PRUEBAS PARA DRAG AND DROP SIN LIBRERIAS EN REACT
+    const onDrop = (ev) => {
+        setListatareas([...listatareas, {descripcion: ev.dataTransfer.getData("descripcion")}])
+    }*/
 
     return (<div className="columna">
                 <div className="titular">
                     <span className="titulo">{props.titulo}</span>
                     <span className="btnBorrado" onClick={() => props.borraColumna(props.indice)}>X</span>
                 </div>
+                {/*//PRUEBAS PARA DRAG AND DROP SIN LIBRERIAS EN REACT*/}
+                {/*<ul className="contenedorMensajes" onDragOver={(evento) => onDragOver(evento)} onDrop={(evento) => onDrop(evento)}>*/}
                 <ul className="contenedorMensajes">
                 {
                     listatareas.map((tareilla, index) => (
@@ -34,7 +45,7 @@ const Columna = props => {
                 }
                 </ul>
                 <div className="frm">
-                    <input type="text" id="descripcion" name="descripcion" placeholder="Indica la tarea..." onChange={handleChangeT} />
+                    <input type="text" id="descripcion" name="descripcion" value={task.task} placeholder="Indica la tarea..." onChange={handleChangeT} />
             <span onClick={handleClickT}>+</span>
                 </div>
              </div>
