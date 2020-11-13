@@ -19,6 +19,13 @@ git clone https://github.com/antoniovalverde/reto3.git
 Añada un nombre a la nueva lista (columna) en el formulario para dicho fin y presione el botón "+" para añadir una lista.
 Dentro de cada lista aparece un botón "X" en la parte superior para eliminar toda la lista.
 También, en cada lista, se pueden añadir tareas en el formulario inferior, escribiendo el texto de la tarea y pulsando en el
+botón "+". Además, cada tarea dispone de su botón "X" para eliminarla.
+
+
+## 🚀 Demo 
+
+Aquí puedes probar mi proyecto [DEMO](https://antoniovalverde.github.io/reto3/)
+
 
 ## 🍰 Contribuciones
 La ayuda es bienvenida, así como los consejos y demás. No seáis muy duros ya que se trata de mi primer proyecto en React como parte de un reto del bootcamp que estoy cursando.
