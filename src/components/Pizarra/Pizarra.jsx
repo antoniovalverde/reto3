@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import './Pizarra.scss';
-import Columna from '../Columna/Columna';
+import '../Columna/Columna.scss';
+import Tarea from '../Tarea/Tarea';
 
 const Pizarra = props => {
     const [title, setTitle] = useState({});
     const [listacol, setListacol] = useState([]);
+    const [task, setTask] = useState();
 
-    const handleChange = e => setTitle({[e.target.name]: e.target.value})
+    const handleChange = e => setTitle({[e.target.name]: e.target.value, tasks: []})
 
     const handleClick = e => {
         if(Object.keys(title).length === 0 || title.title.trim() === '') {
@@ -22,11 +24,62 @@ const Pizarra = props => {
         setListacol(resetlistacol)
     }
 
+    const handleChangeT = e => {
+        setTask(e.target.value) 
+    }
+    const handleClickT = indice => {
+        if(Object.keys(task).length === 0 || task.trim() === '') {
+            return
+        }
+        let nuevalista = [...listacol];
+        nuevalista[indice].tasks.push(task);
+        setListacol(nuevalista)
+        setTask('')
+    }
+
+    const borraTarea = (index, indice) => {
+        const resetlistatareas = [...listacol]
+        resetlistatareas[indice].tasks.splice(index, 1)
+        setListacol(resetlistatareas)
+    }
+
+    //DRAG AND DROP SIN LIBRERIAS EN REACT
+    const onDragOver = (ev) => {
+        ev.preventDefault();
+    }
+
+    const onDrop = (ev, indi) => {
+        const resetlistatareas = [...listacol]
+        resetlistatareas[indi].tasks.push(ev.dataTransfer.getData("descripcion"))
+        resetlistatareas[ev.dataTransfer.getData("col")].tasks.splice(ev.dataTransfer.getData("ind"), 1)
+        //setListatareas([...listatareas, {descripcion: ev.dataTransfer.getData("descripcion")}])
+        setListacol(resetlistatareas)
+
+        //console.log(listacol)
+    }
+
     return (
                 <div className="board">
                 {
                     listacol.map((titulillo, indice) => (
-                       <Columna titulo={titulillo.title} key={indice} indice={indice}  borraColumna={borraColumna} /> 
+                       /*<Columna titulo={titulillo.title} key={indice} idc={titulillo.id} indice={indice}  estado={listacol} borraColumna={borraColumna} /> */
+                    <div key={indice} className="columna">
+                       <div className="titular">
+                           <span className="titulo">{titulillo.title}</span>
+                           <span className="btnBorrado" onClick={() => borraColumna(indice)}>X</span>
+                       </div>
+                       <ul className="contenedorMensajes" onDragOver={(evento) => onDragOver(evento)} onDrop={(evento) => onDrop(evento, indice)}>
+                       {
+                            titulillo.tasks.map((tareilla, index) => (
+                               <Tarea descripcion={tareilla} col={indice} key={index} index={index} borraTarea={borraTarea} />
+                            ))
+                       }
+                       </ul>
+                       <div className="frm">
+                           <input type="text" id="descripcion" key={indice} colu={indice} name="descripcion" placeholder="Indica la tarea..." onChange={handleChangeT} />
+                            <span co={indice} onClick={() =>handleClickT(indice)}>+</span>
+                       </div>
+                    </div>
                     ))
                 }
                         <div className="we">
