@@ -2,6 +2,14 @@ import React, {useState} from 'react';
 import './Columna.scss';
 import Tarea from '../Tarea/Tarea';
 
+
+/* En un principio, el componente Pizarra pintaba las columnas con este componente, y este a su vez llamaba al componente Tarea
+    para hacer lo propio. El paso datos entre componentes es bastante problemático y si bien se ve muy ordenado el componente
+    principal, entiendo que no vale la pena por el costo en problemas y código. De ahí entiendo que sale Redux, para paliar
+    estos temas. Como no he implementado la aplicación con Redux (espero que para la próxima si lo haga) he decidido dejar
+    este componente, como estaba planteado, para consulta, aunque no será utilizado en la aplicación
+*/
+
 const Columna = props => {
     const [task, setTask] = useState({});
     const [listatareas, setListatareas] = useState([]);
