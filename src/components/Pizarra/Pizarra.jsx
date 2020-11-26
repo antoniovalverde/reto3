@@ -6,7 +6,7 @@ import Tarea from '../Tarea/Tarea';
 const Pizarra = props => {
     const [title, setTitle] = useState({});
     const [listacol, setListacol] = useState([]);
-    const [task, setTask] = useState();
+    const [task, setTask] = useState([]);
 
     const handleChange = e => setTitle({[e.target.name]: e.target.value, tasks: []})
 
@@ -25,14 +25,17 @@ const Pizarra = props => {
     }
 
     const handleChangeT = e => {
-        setTask(e.target.value) 
+        setTask([e.target.name, e.target.value]) 
     }
     const handleClickT = indice => {
-        if(Object.keys(task).length === 0 || task.trim() === '') {
+        // eslint-disable-next-line
+        if(indice != task[0] || task[1].trim() === '') {
+            //Object.keys(task)[0].length === 0
             return
         }
         let nuevalista = [...listacol];
-        nuevalista[indice].tasks.push(task);
+        //console.log(indice)
+        nuevalista[indice].tasks.push(task[1]);
         setListacol(nuevalista)
         setTask('')
     }
@@ -52,9 +55,7 @@ const Pizarra = props => {
         const resetlistatareas = [...listacol]
         resetlistatareas[indi].tasks.push(ev.dataTransfer.getData("descripcion"))
         resetlistatareas[ev.dataTransfer.getData("col")].tasks.splice(ev.dataTransfer.getData("ind"), 1)
-        //setListatareas([...listatareas, {descripcion: ev.dataTransfer.getData("descripcion")}])
         setListacol(resetlistatareas)
-
         //console.log(listacol)
     }
 
@@ -76,8 +77,9 @@ const Pizarra = props => {
                        }
                        </ul>
                        <div className="frm">
-                           <input type="text" id="descripcion" key={indice} colu={indice} name="descripcion" placeholder="Indica la tarea..." onChange={handleChangeT} />
-                            <span co={indice} onClick={() =>handleClickT(indice)}>+</span>
+                           {/* eslint-disable-next-line */}
+                           <input type="text" id="descripcion" key={indice} colu={indice} name={indice} value={indice == task[0] ? task[1] : ''} placeholder="Indica la tarea..." onChange={handleChangeT} />
+                            <span co={indice} onClick={() => handleClickT(indice)}>+</span>
                        </div>
                     </div>
                     ))

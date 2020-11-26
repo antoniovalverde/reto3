@@ -19,7 +19,7 @@
         .titulo{
             align-self: center;
             font-size: 1.5em;
-    
+            cursor: default;
         }
 
         .btnBorrado{
@@ -27,6 +27,7 @@
             align-self: center;
             font-weight: bold;
             color: grey;
+            cursor: pointer; 
         }
     }
 
@@ -48,6 +49,7 @@
             align-self: center;
             font-weight: bold;
             font-size: 1.5em;
+            cursor: pointer;
         }
     }
 }
